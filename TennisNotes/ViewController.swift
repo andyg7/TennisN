@@ -104,13 +104,16 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        println(PFUser.currentUser())
    //     PFUser.logOut()
         // Do any additional setup after loading the view, typically from a nib.
         
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+        if PFUser.currentUser() != nil {
+            self.performSegueWithIdentifier("jumpToMainMenu", sender: self)
+        }
     }
     
     override func didReceiveMemoryWarning() {
