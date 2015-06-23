@@ -105,6 +105,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         println(PFUser.currentUser())
+        println("test")
    //     PFUser.logOut()
         // Do any additional setup after loading the view, typically from a nib.
         
