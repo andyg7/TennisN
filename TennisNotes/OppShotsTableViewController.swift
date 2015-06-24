@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Parse
+
+var shotSelected = 0
 
 class OppShotsTableViewController: UITableViewController {
 
+    @IBOutlet var opponentLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        opponentLabel.text = opponentsList[rowSelected]
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,24 +37,31 @@ class OppShotsTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return opponentSections.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellOp", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
 
+        cell.textLabel?.text = opponentSections[indexPath.row]
+        
         return cell
     }
-    */
+
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        shotSelected = indexPath.row
+        self.performSegueWithIdentifier("jumpToShot", sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.

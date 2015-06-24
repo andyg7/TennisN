@@ -272,7 +272,7 @@
             </objects>
             <point key="canvasLocation" x="1120" y="-761"/>
         </scene>
-        <!--Title-->
+        <!--Opponents Table View Controller-->
         <scene sceneID="2Ep-Th-KLq">
             <objects>
                 <tableViewController id="C3i-5D-jSz" customClass="OpponentsTableViewController" customModule="TennisNotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -300,7 +300,7 @@
                             <outlet property="delegate" destination="C3i-5D-jSz" id="k1e-5q-A2E"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="jxf-ma-kph">
+                    <navigationItem key="navigationItem" id="jxf-ma-kph">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zb9-cN-fxr">
                             <connections>
                                 <segue destination="X2w-rT-J5e" kind="show" id="v0U-zN-sPk"/>
@@ -391,8 +391,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9S8-Du-LDg">
+                            <rect key="frame" x="0.0" y="-21" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ZB6-U8-KEX">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellOp" id="ZB6-U8-KEX">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZB6-U8-KEX" id="Ojg-Ac-ugX">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -404,9 +411,11 @@
                             <outlet property="delegate" destination="tfi-e5-7xv" id="VkA-Wy-Bmq"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="WnH-V6-0qY"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="opponentLabel" destination="9S8-Du-LDg" id="Ib1-jx-E9d"/>
                         <segue destination="gT4-pg-2R7" kind="show" identifier="jumpToShot" id="knE-Pp-Eqi"/>
                     </connections>
                 </tableViewController>
@@ -414,10 +423,10 @@
             </objects>
             <point key="canvasLocation" x="1697" y="435"/>
         </scene>
-        <!--View Controller-->
+        <!--Opp Selected Shot View Controller-->
         <scene sceneID="6gB-SS-3at">
             <objects>
-                <viewController id="gT4-pg-2R7" sceneMemberID="viewController">
+                <viewController id="gT4-pg-2R7" customClass="OppSelectedShotViewController" customModule="TennisNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IFj-1n-9kZ"/>
                         <viewControllerLayoutGuide type="bottom" id="mPA-oa-fvG"/>
@@ -425,10 +434,46 @@
                     <view key="view" contentMode="scaleToFill" id="gnY-DV-Iu4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7n-rI-Kuz">
+                                <rect key="frame" x="29" y="173" width="263" height="222"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2C-1n-ue1">
+                                <rect key="frame" x="120" y="467" width="101" height="30"/>
+                                <state key="normal" title="Done editing">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneEditPressed:" destination="gT4-pg-2R7" eventType="touchUpInside" id="qyY-Xo-pxj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTL-F9-s5U">
+                                <rect key="frame" x="125" y="136" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="f65-jM-zee">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="JvN-tx-U9Z">
+                            <connections>
+                                <action selector="editPressed:" destination="gT4-pg-2R7" id="suQ-Q1-RLe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="doneEditButton" destination="j2C-1n-ue1" id="0vz-HM-qSR"/>
+                        <outlet property="notes" destination="f7n-rI-Kuz" id="EQh-RD-0o8"/>
+                        <outlet property="shot" destination="VTL-F9-s5U" id="y6E-j6-jkH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Peb-B3-0Oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
