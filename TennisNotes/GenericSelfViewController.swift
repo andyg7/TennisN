@@ -17,7 +17,7 @@ class GenericSelfViewController: UIViewController {
     @IBOutlet var sectionText: UITextView!
     @IBOutlet var doneEditButton: UIButton!
     
-       var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

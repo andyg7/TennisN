@@ -33,7 +33,7 @@ class AddPlayerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addOpponentPressed(sender: AnyObject) {
+    @IBAction func addPlayerPressed(sender: AnyObject) {
         var tempName = opponentName.text
         if isValidInput(tempName) {
             
@@ -57,12 +57,12 @@ class AddPlayerViewController: UIViewController {
                     self.clearAllFields()
                 } else {
                     // There was a problem, check error.description
-                     self.clearAllFields()
+                    self.clearAllFields()
                 }
             }
         }
     }
-
+    
     func initializeSections(object: PFObject, name: String){
         object["Follower"] = PFUser.currentUser()!.username
         object["OpponentFollowed"] = name
