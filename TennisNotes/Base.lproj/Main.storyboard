@@ -272,7 +272,7 @@
             </objects>
             <point key="canvasLocation" x="1120" y="-761"/>
         </scene>
-        <!--Opponents Table View Controller-->
+        <!--Title-->
         <scene sceneID="2Ep-Th-KLq">
             <objects>
                 <tableViewController id="C3i-5D-jSz" customClass="OpponentsTableViewController" customModule="TennisNotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -280,6 +280,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4k0-cJ-lLZ">
+                            <rect key="frame" x="0.0" y="-21" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="09J-Gq-wNO">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -293,12 +300,139 @@
                             <outlet property="delegate" destination="C3i-5D-jSz" id="k1e-5q-A2E"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="jxf-ma-kph">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zb9-cN-fxr">
+                            <connections>
+                                <segue destination="X2w-rT-J5e" kind="show" id="v0U-zN-sPk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="4k0-cJ-lLZ" id="oRU-UG-FhV"/>
+                        <segue destination="tfi-e5-7xv" kind="show" identifier="jumpToOppShotList" id="jOX-0P-nHy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kd8-1A-mi6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1241" y="-51"/>
+        </scene>
+        <!--Add Player View Controller-->
+        <scene sceneID="ybp-6o-fDF">
+            <objects>
+                <viewController id="X2w-rT-J5e" customClass="AddPlayerViewController" customModule="TennisNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ujm-mw-CoG"/>
+                        <viewControllerLayoutGuide type="bottom" id="hIf-Wd-tN0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="28o-zH-trL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koj-bA-Xff">
+                                <rect key="frame" x="23" y="117" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dQ4-kA-Hkz">
+                                <rect key="frame" x="116" y="113" width="143" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="General Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqW-Uk-GAn">
+                                <rect key="frame" x="116" y="171" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aHX-b7-NTu">
+                                <rect key="frame" x="40" y="200" width="240" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="(You can add more detailed notes once player is added)" translatesAutoresizingMaskIntoConstraints="NO" id="CSz-MO-lKf">
+                                <rect key="frame" x="67" y="432" width="171" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8v-Gk-qNO">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Add Player" id="7hb-rL-gfF">
+                                        <connections>
+                                            <action selector="addOpponentPressed:" destination="X2w-rT-J5e" id="zFh-Pv-QqL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="generalNotes" destination="aHX-b7-NTu" id="Rco-r2-DT1"/>
+                        <outlet property="opponentName" destination="dQ4-kA-Hkz" id="3Nt-sC-Z7k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RRg-fm-feX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="-204"/>
+        </scene>
+        <!--Opp Shots Table View Controller-->
+        <scene sceneID="crh-5R-wOC">
+            <objects>
+                <tableViewController id="tfi-e5-7xv" customClass="OppShotsTableViewController" customModule="TennisNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MxR-uU-ZWM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ZB6-U8-KEX">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZB6-U8-KEX" id="Ojg-Ac-ugX">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tfi-e5-7xv" id="yU4-kj-8C1"/>
+                            <outlet property="delegate" destination="tfi-e5-7xv" id="VkA-Wy-Bmq"/>
+                        </connections>
+                    </tableView>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="gT4-pg-2R7" kind="show" identifier="jumpToShot" id="knE-Pp-Eqi"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogo-T8-eg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1697" y="435"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6gB-SS-3at">
+            <objects>
+                <viewController id="gT4-pg-2R7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IFj-1n-9kZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="mPA-oa-fvG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gnY-DV-Iu4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Peb-B3-0Oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1648" y="1176"/>
         </scene>
         <!--Logout View Controller-->
         <scene sceneID="qk7-fq-xAb">
