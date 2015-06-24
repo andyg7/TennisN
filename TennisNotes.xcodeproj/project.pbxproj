@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AD9AAE0A1B3A117F0088D842 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9AAE091B3A117F0088D842 /* MainMenuViewController.swift */; };
+		AD9BED281B3AC3D90011CB4A /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BED271B3AC3D90011CB4A /* GeneralTableViewController.swift */; };
+		AD9BED2A1B3AC72A0011CB4A /* GenericSelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BED291B3AC72A0011CB4A /* GenericSelfViewController.swift */; };
 		ADBAA7531B3A18610078BEF8 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBAA7521B3A18610078BEF8 /* LogoutViewController.swift */; };
 		ADDF0F5A1B39ED9300594445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF0F591B39ED9300594445 /* AppDelegate.swift */; };
 		ADDF0F5C1B39ED9300594445 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF0F5B1B39ED9300594445 /* ViewController.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		AD9AAE091B3A117F0088D842 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		AD9BED271B3AC3D90011CB4A /* GeneralTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTableViewController.swift; sourceTree = "<group>"; };
+		AD9BED291B3AC72A0011CB4A /* GenericSelfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSelfViewController.swift; sourceTree = "<group>"; };
 		ADBAA7521B3A18610078BEF8 /* LogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		ADDF0F541B39ED9300594445 /* TennisNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDF0F581B39ED9300594445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				ADDF0F591B39ED9300594445 /* AppDelegate.swift */,
 				ADDF0F5B1B39ED9300594445 /* ViewController.swift */,
 				ADDF0F5D1B39ED9300594445 /* Main.storyboard */,
+				AD9BED291B3AC72A0011CB4A /* GenericSelfViewController.swift */,
+				AD9BED271B3AC3D90011CB4A /* GeneralTableViewController.swift */,
 				ADBAA7521B3A18610078BEF8 /* LogoutViewController.swift */,
 				AD9AAE091B3A117F0088D842 /* MainMenuViewController.swift */,
 				ADDF0F601B39ED9300594445 /* Images.xcassets */,
@@ -270,9 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD9BED2A1B3AC72A0011CB4A /* GenericSelfViewController.swift in Sources */,
 				AD9AAE0A1B3A117F0088D842 /* MainMenuViewController.swift in Sources */,
 				ADDF0F5C1B39ED9300594445 /* ViewController.swift in Sources */,
 				ADBAA7531B3A18610078BEF8 /* LogoutViewController.swift in Sources */,
+				AD9BED281B3AC3D90011CB4A /* GeneralTableViewController.swift in Sources */,
 				ADDF0F5A1B39ED9300594445 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

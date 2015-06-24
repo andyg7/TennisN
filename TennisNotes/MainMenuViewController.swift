@@ -57,6 +57,8 @@ class MainMenuViewController: UIViewController {
         
         if newUser == true {
             
+            println("adding new user")
+            
             var tempArray = [String]()
             tempArray.append("General")
             tempArray.append("Groundstrokes")
@@ -66,10 +68,18 @@ class MainMenuViewController: UIViewController {
             tempArray.append("Physical")
             tempArray.append("Tactics")
           
-            var objectSettings = PFObject(className:"UserSettings")
-            objectSettings["UserId"] = PFUser.currentUser()?.objectId
-            objectSettings["Sections"] = tempArray
-            objectSettings.saveInBackgroundWithBlock {
+            var userSettings = PFObject(className: "UserSettings")
+            userSettings["UserId"] = PFUser.currentUser()?.objectId
+            userSettings["OpponentSections"] = tempArray
+            userSettings["General"] = ""
+            userSettings["Groundstrokes"] = ""
+            userSettings["Serve"] = ""
+            userSettings["Volleys"] = ""
+            userSettings["Mental"] = ""
+            userSettings["Physical"] = ""
+            userSettings["Tactics"] = ""
+            
+            userSettings.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
                     // The object has been saved.
