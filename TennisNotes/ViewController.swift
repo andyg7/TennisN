@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+var newUser = false
+
 class ViewController: UIViewController {
     
     @IBOutlet var username: UITextField!
@@ -62,6 +64,7 @@ class ViewController: UIViewController {
                     } else {
                         // Hooray! Let them use the app now.
                         self.performSegueWithIdentifier("jumpToMainMenu", sender: self)
+                        newUser = true
                         
                     }
                 }
@@ -104,6 +107,7 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        PFUser.logOut()
         println(PFUser.currentUser())
         println("test")
    //     PFUser.logOut()

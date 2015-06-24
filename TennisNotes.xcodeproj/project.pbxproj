@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD9AAE0A1B3A117F0088D842 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9AAE091B3A117F0088D842 /* MainMenuViewController.swift */; };
+		ADBAA7531B3A18610078BEF8 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBAA7521B3A18610078BEF8 /* LogoutViewController.swift */; };
 		ADDF0F5A1B39ED9300594445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF0F591B39ED9300594445 /* AppDelegate.swift */; };
 		ADDF0F5C1B39ED9300594445 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF0F5B1B39ED9300594445 /* ViewController.swift */; };
 		ADDF0F5F1B39ED9300594445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDF0F5D1B39ED9300594445 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		AD9AAE091B3A117F0088D842 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		ADBAA7521B3A18610078BEF8 /* LogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		ADDF0F541B39ED9300594445 /* TennisNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDF0F581B39ED9300594445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADDF0F591B39ED9300594445 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				ADDF0F591B39ED9300594445 /* AppDelegate.swift */,
 				ADDF0F5B1B39ED9300594445 /* ViewController.swift */,
 				ADDF0F5D1B39ED9300594445 /* Main.storyboard */,
+				ADBAA7521B3A18610078BEF8 /* LogoutViewController.swift */,
 				AD9AAE091B3A117F0088D842 /* MainMenuViewController.swift */,
 				ADDF0F601B39ED9300594445 /* Images.xcassets */,
 				ADDF0F621B39ED9300594445 /* LaunchScreen.xib */,
@@ -269,6 +272,7 @@
 			files = (
 				AD9AAE0A1B3A117F0088D842 /* MainMenuViewController.swift in Sources */,
 				ADDF0F5C1B39ED9300594445 /* ViewController.swift in Sources */,
+				ADBAA7531B3A18610078BEF8 /* LogoutViewController.swift in Sources */,
 				ADDF0F5A1B39ED9300594445 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

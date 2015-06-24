@@ -7,14 +7,25 @@
 //
 
 import UIKit
+import Parse
+
+var opponentSections = ["General", "Groundstrokes", "Serve", "Volleys", "Mental", "Physical", "Tactics"]
+var userType = "player"
 
 class MainMenuViewController: UIViewController {
-
+    
+    @IBOutlet var generalNotesButton: UIButton!
+    @IBOutlet var userSwitch: UISwitch!
+    @IBOutlet var listOpponentsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         println("here")
+        self.userSetUp()
+        generalNotesButton.layer.cornerRadius = 5
+        listOpponentsButton.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +41,47 @@ class MainMenuViewController: UIViewController {
         self.navigationController?.navigationBarHidden = false
     }
 
+    @IBAction func switchPressed(sender: AnyObject) {
+        if userType == "coach"{
+            userType = "player"
+            generalNotesButton.hidden = false
+            listOpponentsButton.setTitle("Opponents", forState: UIControlState.Normal)
+        } else {
+            userType = "coach"
+            generalNotesButton.hidden = true
+            listOpponentsButton.setTitle("Students", forState: UIControlState.Normal)
+        }
+    }
+    
+    func userSetUp() {
+        
+        if newUser == true {
+            
+            var tempArray = [String]()
+            tempArray.append("General")
+            tempArray.append("Groundstrokes")
+            tempArray.append("Serve")
+            tempArray.append("Volleys")
+            tempArray.append("Mental")
+            tempArray.append("Physical")
+            tempArray.append("Tactics")
+          
+            var objectSettings = PFObject(className:"UserSettings")
+            objectSettings["UserId"] = PFUser.currentUser()?.objectId
+            objectSettings["Sections"] = tempArray
+            objectSettings.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
+            
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 
