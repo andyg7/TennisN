@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet var toggleButton: UIButton!
     @IBOutlet var registeredLabel: UILabel!
     @IBOutlet var signUpLabel: UILabel!
-    
     @IBOutlet var emailAddress: UITextField!
     
     var signUpPage = true
@@ -90,6 +89,7 @@ class ViewController: UIViewController {
     
     @IBAction func toggleAction(sender: AnyObject) {
         if signUpPage == true {
+            emailAddress.hidden = true
             signUpPage = false
             signUpLabel.text = "Log in below"
             signUpButton.setTitle("Log in", forState: UIControlState.Normal)
@@ -107,7 +107,7 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-    //    PFUser.logOut()
+     //   PFUser.logOut()
         println(PFUser.currentUser())
         println("test")
    //     PFUser.logOut()
@@ -128,7 +128,7 @@ class ViewController: UIViewController {
     
     func isValidUsernamePassword(userN: String, passW: String, emailA: String) -> String {
         
-        if userN == "" || passW == "" || emailA == "" {
+        if userN == "" || passW == "" {
             return "false"
         }
         
@@ -138,7 +138,7 @@ class ViewController: UIViewController {
     func displayAlert(title: String, error: String) {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-            self.dismissViewControllerAnimated(true, completion: nil)
+        //    self.dismissViewControllerAnimated(true, completion: nil)
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }

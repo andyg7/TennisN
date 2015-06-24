@@ -62,7 +62,6 @@ class GeneralTableViewController: UITableViewController {
         self.performSegueWithIdentifier("jumpToGeneralSelected", sender: self)
         selectionG = indexPath.row
         
-        
     }
 
     /*
