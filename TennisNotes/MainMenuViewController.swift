@@ -57,7 +57,7 @@ class MainMenuViewController: UIViewController {
         
         if newUser == true {
             
-            println("adding new user")
+            self.displayAlert("Link sent to " + PFUser.currentUser()!.email!, error: "Please confirm email")
             
             var tempArray = [String]()
             tempArray.append("General")
@@ -90,6 +90,14 @@ class MainMenuViewController: UIViewController {
             
         }
         
+    }
+    
+    func displayAlert(title: String, error: String) {
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+            //    self.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     /*

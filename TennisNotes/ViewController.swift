@@ -97,22 +97,20 @@ class ViewController: UIViewController {
             toggleButton.setTitle("Sign up", forState: UIControlState.Normal)
             
         } else {
+            emailAddress.hidden = false
             signUpPage = true
             signUpLabel.text = "Sign up below"
             signUpButton.setTitle("Sign up", forState: UIControlState.Normal)
-            registeredLabel.text = "Already registered?"
+            registeredLabel.text = "Have an account?"
             toggleButton.setTitle("Log in", forState: UIControlState.Normal)
         }
         
     }
     override func viewDidLoad() {
-        super.viewDidLoad()
-     //   PFUser.logOut()
-        println(PFUser.currentUser())
-        println("test")
-   //     PFUser.logOut()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        super.viewDidLoad()
+        PFUser.logOut()
+        println(PFUser.currentUser())
     }
     
     override func viewDidAppear(animated: Bool) {
