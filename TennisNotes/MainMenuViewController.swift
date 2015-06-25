@@ -20,13 +20,19 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        println("1")
+        
+        println("2")
+        
+        println("3")
+        
         // Do any additional setup after loading the view.
         self.userSetUp()
         generalNotesButton.layer.cornerRadius = 5
         listOpponentsButton.layer.cornerRadius = 5
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,7 +45,7 @@ class MainMenuViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
-
+    
     @IBAction func switchPressed(sender: AnyObject) {
         if userType == "coach"{
             userType = "player"
@@ -66,7 +72,7 @@ class MainMenuViewController: UIViewController {
             tempArray.append("Mental")
             tempArray.append("Physical")
             tempArray.append("Tactics")
-          
+            
             var userSettings = PFObject(className: "UserSettings")
             userSettings["UserId"] = PFUser.currentUser()?.objectId
             userSettings["OpponentSections"] = tempArray
@@ -88,7 +94,19 @@ class MainMenuViewController: UIViewController {
             }
             
         } else {
+            var currentU = PFUser.currentUser()
             
+            //    var emailVerified = currentU!.valueForKey("emailVerified") as! Boolean
+            //    var tempV = currentU!.valueForKey("emailVerified") as! BooleanType
+            //   println(currentU!.valueForKey("emailVerified"))
+            
+            /*       if(emailVerified == 0) {
+            currentU?.email = PFUser.currentUser()?.email
+            self.displayAlert("Link to " + currentU!.email! + " resent", error: "Please confirm your email")
+            } */
+            
+          //  println("Verified: ")
+            //   println(emailVerified)
         }
         
     }
@@ -103,12 +121,12 @@ class MainMenuViewController: UIViewController {
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
