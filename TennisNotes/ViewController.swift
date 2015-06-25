@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet var toggleButton: UIButton!
     @IBOutlet var registeredLabel: UILabel!
     @IBOutlet var signUpLabel: UILabel!
-    @IBOutlet var emailAddress: UITextField!
     
     var signUpPage = true
     
@@ -29,7 +28,7 @@ class ViewController: UIViewController {
         
         var myError = ""
         
-        if isValidUsernamePassword(username.text, passW: password.text, emailA: emailAddress.text)=="false"{
+        if isValidUsernamePassword(username.text, passW: password.text)=="false"{
             myError = "Please enter a username and password"
         }
         
@@ -49,7 +48,7 @@ class ViewController: UIViewController {
                 var user = PFUser()
                 user.username = username.text
                 user.password = password.text
-                user.email = emailAddress.text
+                user.email = username.text
                 user["GeneralNotes"] = ""
                 
                 user.signUpInBackgroundWithBlock {
@@ -62,9 +61,8 @@ class ViewController: UIViewController {
                         // Show the errorString somewhere and let the user try again.
                     } else {
                         // Hooray! Let them use the app now.
-                        self.performSegueWithIdentifier("jumpToMainMenu", sender: self)
                         newUser = true
-                        
+                        self.performSegueWithIdentifier("jumpToMainMenu", sender: self)
                     }
                 }
                 
@@ -89,7 +87,6 @@ class ViewController: UIViewController {
     
     @IBAction func toggleAction(sender: AnyObject) {
         if signUpPage == true {
-            emailAddress.hidden = true
             signUpPage = false
             signUpLabel.text = "Log in below"
             signUpButton.setTitle("Log in", forState: UIControlState.Normal)
@@ -97,7 +94,6 @@ class ViewController: UIViewController {
             toggleButton.setTitle("Sign up", forState: UIControlState.Normal)
             
         } else {
-            emailAddress.hidden = false
             signUpPage = true
             signUpLabel.text = "Sign up below"
             signUpButton.setTitle("Sign up", forState: UIControlState.Normal)
@@ -107,9 +103,9 @@ class ViewController: UIViewController {
         
     }
     override func viewDidLoad() {
-        // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
-        PFUser.logOut()
+        // Do any additional setup after loading the view, typically from a nib.
+     //   PFUser.logOut()
         println(PFUser.currentUser())
     }
     
@@ -124,7 +120,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func isValidUsernamePassword(userN: String, passW: String, emailA: String) -> String {
+    func isValidUsernamePassword(userN: String, passW: String) -> String {
         
         if userN == "" || passW == "" {
             return "false"

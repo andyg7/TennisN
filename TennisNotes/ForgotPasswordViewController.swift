@@ -11,16 +11,28 @@ import Parse
 
 class ForgotPasswordViewController: UIViewController {
     
+    @IBOutlet var submitButton: UIButton!
+    
     @IBOutlet var emailAddress: UITextField!
     
     @IBAction func submit(sender: AnyObject) {
         
-        if(PFUser.requestPasswordResetForEmailInBackground(emailAddress.text) == true) {
-            println("ooo")
-            self.performSegueWithIdentifier("backToLogin", sender: self)
-        } else {
-           self.displayAlert("Please re-enter", error: "Could not find that email address")
-        }
+        PFUser.requestPasswordResetForEmailInBackground(emailAddress.text, block: { (succeeded: Bool, error: NSError?) -> Void in
+            if error == nil {
+                if succeeded { // SUCCESSFULLY SENT TO EMAIL
+                    
+                    self.performSegueWithIdentifier("backToLogin", sender: self)
+                    println("Reset email sent to your inbox");
+                }
+                else { // SOME PROBLEM OCCURED
+                    self.displayAlert("Reset link couldn't be sent", error: "Please try again")
+                }
+            }
+            else { //ERROR OCCURED, DISPLAY ERROR MESSAGE
+                self.displayAlert("Could not find email address", error: "Please re-enter")
+                println(error!.description);
+            }
+        });
     }
     @IBAction func backToLoginPageButton(sender: AnyObject) {
         self.performSegueWithIdentifier("backToLogin", sender: self)
@@ -33,8 +45,13 @@ class ForgotPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        
+   //     submitButton.layer.borderWidth = 1.0
+    //    submitButton.layer.cornerRadius = 5
+    //    submitButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+  
     }
     
     override func didReceiveMemoryWarning() {

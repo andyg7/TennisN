@@ -22,7 +22,6 @@ class MainMenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        println("here")
         self.userSetUp()
         generalNotesButton.layer.cornerRadius = 5
         listOpponentsButton.layer.cornerRadius = 5
@@ -87,6 +86,8 @@ class MainMenuViewController: UIViewController {
                     // There was a problem, check error.description
                 }
             }
+            
+        } else {
             
         }
         
