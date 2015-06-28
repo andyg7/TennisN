@@ -33,7 +33,7 @@ class AddPlayerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addPlayerPressed(sender: AnyObject) {
+    @IBAction func addPlayerButtonPressed(sender: AnyObject) {
         var tempName = opponentName.text
         if isValidInput(tempName) {
             
@@ -61,6 +61,10 @@ class AddPlayerViewController: UIViewController {
                 }
             }
         }
+
+    }
+    @IBAction func addPlayerPressed(sender: AnyObject) {
+        
     }
     
     func initializeSections(object: PFObject, name: String){

@@ -106,11 +106,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
      //   PFUser.logOut()
-        println(PFUser.currentUser())
+     //   println(PFUser.currentUser())
     }
     
     override func viewDidAppear(animated: Bool) {
         if PFUser.currentUser() != nil {
+            println("User auto logging in")
             self.performSegueWithIdentifier("jumpToMainMenu", sender: self)
         }
     }

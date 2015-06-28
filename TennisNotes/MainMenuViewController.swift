@@ -21,12 +21,6 @@ class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println("1")
-        
-        println("2")
-        
-        println("3")
-        
         // Do any additional setup after loading the view.
         self.userSetUp()
         generalNotesButton.layer.cornerRadius = 5
@@ -96,17 +90,18 @@ class MainMenuViewController: UIViewController {
         } else {
             var currentU = PFUser.currentUser()
             
-            //    var emailVerified = currentU!.valueForKey("emailVerified") as! Boolean
-            //    var tempV = currentU!.valueForKey("emailVerified") as! BooleanType
-            //   println(currentU!.valueForKey("emailVerified"))
+            var t = currentU!.valueForKey("emailVerified") as! Bool
             
-            /*       if(emailVerified == 0) {
-            currentU?.email = PFUser.currentUser()?.email
-            self.displayAlert("Link to " + currentU!.email! + " resent", error: "Please confirm your email")
-            } */
+            if(t == true) {
+                println("email verified")
+            } else {
+                println("email not verified")
+                var tempEmail = currentU!.email
+                //   currentU?.email = tempEmail
+                self.displayAlert("Please check email to confirm account", error:"Just in case you ever forget your password")
+                
+            }
             
-          //  println("Verified: ")
-            //   println(emailVerified)
         }
         
     }

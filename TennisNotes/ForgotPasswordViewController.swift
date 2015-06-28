@@ -30,7 +30,7 @@ class ForgotPasswordViewController: UIViewController {
             }
             else { //ERROR OCCURED, DISPLAY ERROR MESSAGE
                 self.displayAlert("Could not find email address", error: "Please re-enter")
-                println(error!.description);
+           //     println(error!.description);
             }
         });
     }
