@@ -36,7 +36,7 @@ class OppSelectedShotViewController: UIViewController {
             (object: PFObject?, error: NSError?) -> Void in
             if error == nil && object != nil {
                 println(object)
-                var tem = object?.valueForKey(self.shot.text!)
+                var tem = object!.valueForKey(self.shot.text!)
                 self.notes.text = tem as! String
             } else {
                 println(error)
