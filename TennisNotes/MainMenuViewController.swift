@@ -89,8 +89,9 @@ class MainMenuViewController: UIViewController {
             
         } else {
             var currentU = PFUser.currentUser()
+            println(currentU)
             
-            var t = currentU!.valueForKey("emailVerified") as! Bool
+       /*     var t = currentU!.objectForKey("emailVerified") as! Bool
             
             if(t == true) {
                 println("email verified")
@@ -100,10 +101,8 @@ class MainMenuViewController: UIViewController {
                 //   currentU?.email = tempEmail
                 self.displayAlert("Please check email to confirm account", error:"Just in case you ever forget your password")
                 
-            }
-            
+            } */
         }
-        
     }
     
     func displayAlert(title: String, error: String) {

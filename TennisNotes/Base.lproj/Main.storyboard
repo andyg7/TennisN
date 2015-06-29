@@ -493,18 +493,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeT-gV-qeG">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8XR-eA-cUS"/>
-                                    <barButtonItem title="Add Player" id="KrL-Mh-8QX">
-                                        <connections>
-                                            <action selector="addPlayerPressed:" destination="X2w-rT-J5e" id="KHS-cS-NVL"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="F44-TZ-uQP"/>
-                                </items>
-                            </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHX-b7-NTu">
                                 <rect key="frame" x="34" y="169" width="251" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -520,15 +508,12 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="KqW-Uk-GAn" secondAttribute="centerX" id="990-M6-98q"/>
                             <constraint firstItem="koj-bA-Xff" firstAttribute="leading" secondItem="28o-zH-trL" secondAttribute="leadingMargin" constant="-5" id="CHW-mj-wW1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VeT-gV-qeG" secondAttribute="trailing" constant="-16" id="CYG-13-KQ5"/>
                             <constraint firstItem="dQ4-kA-Hkz" firstAttribute="leading" secondItem="koj-bA-Xff" secondAttribute="trailing" constant="23" id="Gpt-LI-cEu"/>
                             <constraint firstItem="aHX-b7-NTu" firstAttribute="top" secondItem="KqW-Uk-GAn" secondAttribute="bottom" constant="16" id="JXZ-fV-4OH"/>
                             <constraint firstAttribute="centerX" secondItem="aHX-b7-NTu" secondAttribute="centerX" id="OJ9-xj-cU0"/>
-                            <constraint firstItem="hIf-Wd-tN0" firstAttribute="top" secondItem="VeT-gV-qeG" secondAttribute="bottom" id="ZaH-Am-6lv"/>
                             <constraint firstItem="dQ4-kA-Hkz" firstAttribute="top" secondItem="Ujm-mw-CoG" secondAttribute="bottom" constant="21" id="bjP-mR-0mH"/>
                             <constraint firstItem="KqW-Uk-GAn" firstAttribute="top" secondItem="dQ4-kA-Hkz" secondAttribute="bottom" constant="17" id="cFZ-sA-Umv"/>
                             <constraint firstItem="koj-bA-Xff" firstAttribute="top" secondItem="Ujm-mw-CoG" secondAttribute="bottom" constant="21" id="gaZ-uq-EAf"/>
-                            <constraint firstItem="VeT-gV-qeG" firstAttribute="leading" secondItem="28o-zH-trL" secondAttribute="leadingMargin" constant="-16" id="kmB-Tt-TrQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s0a-pZ-Z9r">

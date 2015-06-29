@@ -22,6 +22,8 @@ class OppSelectedShotViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
         
         doneEditButton.hidden = true
         doneEditButton.layer.cornerRadius = 5
@@ -47,6 +49,11 @@ class OppSelectedShotViewController: UIViewController {
         notes.layer.cornerRadius = 5
     }
 
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

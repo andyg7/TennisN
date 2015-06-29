@@ -74,6 +74,7 @@ class ViewController: UIViewController {
                     if user != nil {
                         // Do stuff after successful login.
                         self.performSegueWithIdentifier("jumpToMainMenu", sender: self)
+                        println(user)
                     } else {
                         // The login failed. Check error to see why.
 
@@ -107,10 +108,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
      //   PFUser.logOut()
      //   println(PFUser.currentUser())
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     override func viewDidAppear(animated: Bool) {
         if PFUser.currentUser() != nil {
+            println(PFUser.currentUser())
             println("User auto logging in")
             self.performSegueWithIdentifier("jumpToMainMenu", sender: self)
         }

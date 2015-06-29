@@ -14,12 +14,12 @@
 		AD9AAE0A1B3A117F0088D842 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9AAE091B3A117F0088D842 /* MainMenuViewController.swift */; };
 		AD9BED281B3AC3D90011CB4A /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BED271B3AC3D90011CB4A /* GeneralTableViewController.swift */; };
 		AD9BED2A1B3AC72A0011CB4A /* GenericSelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BED291B3AC72A0011CB4A /* GenericSelfViewController.swift */; };
+		ADA2A4011B41B31F009F1399 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADDF0F601B39ED9300594445 /* Images.xcassets */; };
 		ADBAA7531B3A18610078BEF8 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBAA7521B3A18610078BEF8 /* LogoutViewController.swift */; };
 		ADDCF73C1B3B132F001B31C5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCF73B1B3B132F001B31C5 /* ForgotPasswordViewController.swift */; };
 		ADDF0F5A1B39ED9300594445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF0F591B39ED9300594445 /* AppDelegate.swift */; };
 		ADDF0F5C1B39ED9300594445 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF0F5B1B39ED9300594445 /* ViewController.swift */; };
 		ADDF0F5F1B39ED9300594445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDF0F5D1B39ED9300594445 /* Main.storyboard */; };
-		ADDF0F611B39ED9300594445 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADDF0F601B39ED9300594445 /* Images.xcassets */; };
 		ADDF0F641B39ED9300594445 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDF0F621B39ED9300594445 /* LaunchScreen.xib */; };
 		ADDF0F701B39ED9300594445 /* TennisNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF0F6F1B39ED9300594445 /* TennisNotesTests.swift */; };
 		ADDF0F7A1B39F66400594445 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDF0F791B39F66400594445 /* Parse.framework */; };
@@ -271,9 +271,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA2A4011B41B31F009F1399 /* Images.xcassets in Resources */,
 				ADDF0F5F1B39ED9300594445 /* Main.storyboard in Resources */,
 				ADDF0F641B39ED9300594445 /* LaunchScreen.xib in Resources */,
-				ADDF0F611B39ED9300594445 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
