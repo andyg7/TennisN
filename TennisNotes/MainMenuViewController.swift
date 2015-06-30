@@ -88,6 +88,7 @@ class MainMenuViewController: UIViewController {
             }
             
         } else {
+            /*
             var currentU = PFUser.currentUser()
             println(currentU)
             
@@ -106,6 +107,7 @@ class MainMenuViewController: UIViewController {
                 println("email not verified")
                 self.displayAlert("Please check email to confirm account", error:"Just in case you ever forget your password")
             }
+            */
         }
     }
     

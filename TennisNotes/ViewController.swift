@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         var myError = ""
         
         if isValidUsernamePassword(username.text, passW: password.text)=="false"{
-            myError = "Please enter a username and password"
+            myError = "Password must be at least 6 characters long"
         }
         
         if myError != ""{
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
                 user.username = username.text
                 user.password = password.text
                 user.email = username.text
-                user["GeneralNotes"] = ""
+           //     user["GeneralNotes"] = ""
                 
                 user.signUpInBackgroundWithBlock {
                     (succeeded: Bool, error: NSError?) -> Void in
@@ -133,6 +133,10 @@ class ViewController: UIViewController {
     func isValidUsernamePassword(userN: String, passW: String) -> String {
         
         if userN == "" || passW == "" {
+            return "false"
+        }
+        
+        if(count(passW) < 6) {
             return "false"
         }
         
