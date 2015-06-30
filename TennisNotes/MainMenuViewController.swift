@@ -91,17 +91,21 @@ class MainMenuViewController: UIViewController {
             var currentU = PFUser.currentUser()
             println(currentU)
             
-       /*     var t = currentU!.objectForKey("emailVerified") as! Bool
-            
-            if(t == true) {
-                println("email verified")
+            if var t = currentU!.objectForKey("emailVerified") as? Bool {
+                
+                if(t == true) {
+                    println("email verified")
+                } else {
+                    println("email not verified")
+                    var tempEmail = currentU!.email
+                    //   currentU?.email = tempEmail
+                    self.displayAlert("Please check email to confirm account", error:"Just in case you ever forget your password")
+                    
+                }
             } else {
                 println("email not verified")
-                var tempEmail = currentU!.email
-                //   currentU?.email = tempEmail
                 self.displayAlert("Please check email to confirm account", error:"Just in case you ever forget your password")
-                
-            } */
+            }
         }
     }
     
