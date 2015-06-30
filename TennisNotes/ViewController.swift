@@ -77,7 +77,7 @@ class ViewController: UIViewController {
                         println(user)
                     } else {
                         // The login failed. Check error to see why.
-
+                        
                         self.displayAlert("Could not log in", error: "Login Failed")
                     }
                 }
@@ -106,8 +106,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-     //   PFUser.logOut()
-     //   println(PFUser.currentUser())
+        //   PFUser.logOut()
+        //   println(PFUser.currentUser())
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
     }
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
     func displayAlert(title: String, error: String) {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-        //    self.dismissViewControllerAnimated(true, completion: nil)
+            //    self.dismissViewControllerAnimated(true, completion: nil)
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
