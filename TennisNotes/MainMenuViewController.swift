@@ -57,6 +57,7 @@ class MainMenuViewController: UIViewController {
         if newUser == true {
             
             self.displayAlert("Link sent to " + PFUser.currentUser()!.email!, error: "Please confirm email")
+          //  self.displayAlert("For best performance keep iPhone in portrait mode", error: "")
             
             var tempArray = [String]()
             tempArray.append("General")

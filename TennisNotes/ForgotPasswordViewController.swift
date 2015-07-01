@@ -15,9 +15,25 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBOutlet var emailAddress: UITextField!
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     @IBAction func submit(sender: AnyObject) {
         
+        self.view.endEditing(true)
+        
+        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        
         PFUser.requestPasswordResetForEmailInBackground(emailAddress.text, block: { (succeeded: Bool, error: NSError?) -> Void in
+            
+            self.activityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            
             if error == nil {
                 if succeeded { // SUCCESSFULLY SENT TO EMAIL
                     
@@ -47,11 +63,18 @@ class ForgotPasswordViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
    //     submitButton.layer.borderWidth = 1.0
     //    submitButton.layer.cornerRadius = 5
     //    submitButton.layer.borderColor = UIColor.blackColor().CGColor
-        
   
+    }
+
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {

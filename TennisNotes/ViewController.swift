@@ -23,6 +23,22 @@ class ViewController: UIViewController {
     var signUpPage = true
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        //   PFUser.logOut()
+        //   println(PFUser.currentUser())
+        
+        username.layer.cornerRadius = 7
+        username.layer.borderWidth = 0.75
+        password.layer.cornerRadius = 7
+        password.layer.borderWidth = 0.75
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
     
     @IBAction func signUp(sender: AnyObject) {
         
@@ -103,14 +119,7 @@ class ViewController: UIViewController {
         }
         
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //   PFUser.logOut()
-        //   println(PFUser.currentUser())
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
-        view.addGestureRecognizer(tap)
-    }
+  
     
     func DismissKeyboard(){
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
