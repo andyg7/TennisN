@@ -31,10 +31,10 @@ class ViewController: UIViewController {
         //   PFUser.logOut()
         //   println(PFUser.currentUser())
         
-        username.layer.cornerRadius = 7
+  /*      username.layer.cornerRadius = 7
         username.layer.borderWidth = 0.75
         password.layer.cornerRadius = 7
-        password.layer.borderWidth = 0.75
+        password.layer.borderWidth = 0.75 */
         
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
