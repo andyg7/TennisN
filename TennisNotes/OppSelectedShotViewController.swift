@@ -27,7 +27,7 @@ class OppSelectedShotViewController: UIViewController {
         
         doneEditButton.hidden = true
         doneEditButton.layer.cornerRadius = 5
-        notes.editable = false
+      //  notes.editable = false
         
         shot.text = opponentSections[shotSelected]
         
@@ -38,8 +38,8 @@ class OppSelectedShotViewController: UIViewController {
             (object: PFObject?, error: NSError?) -> Void in
             if error == nil && object != nil {
                 println(object)
-                var tem = object!.valueForKey(self.shot.text!)
-                self.notes.text = tem as! String
+                var tem = object!.valueForKey(self.shot.text!) as! String
+                self.notes.text = tem
             } else {
                 println(error)
             }
@@ -52,6 +52,7 @@ class OppSelectedShotViewController: UIViewController {
     func DismissKeyboard(){
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+      //  notes.editable = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,10 +60,49 @@ class OppSelectedShotViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func editPressed(sender: AnyObject) {
+    @IBAction func update(sender: AnyObject) {
+        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        
+        doneEditButton.hidden = true
+        notes.editable = false
+        
+        view.endEditing(true)
+        
+        var tempId = opponentsID[rowSelected]
+        
+        var query = PFQuery(className:"Opponents")
+        
+        query.getObjectInBackgroundWithId(tempId) {
+            (object: PFObject?, error: NSError?) -> Void in
+            self.activityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            if error != nil {
+                println(error)
+            } else if let object = object {
+                object[self.shot.text!] = self.notes.text
+                object.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        // The object has been saved.
+                    } else {
+                        // There was a problem, check error.description
+                    }
+                }
+                
+            }
+        }
+        
+    }
+   /* @IBAction func editPressed(sender: AnyObject) {
         doneEditButton.hidden = false
         notes.editable = true
-    }
+    } */
 
     @IBAction func doneEditPressed(sender: AnyObject) {
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))

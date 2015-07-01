@@ -24,6 +24,10 @@ class AddPlayerViewController: UIViewController {
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         
+        opponentName.layer.borderColor = UIColor.blackColor().CGColor
+        opponentName.layer.borderWidth = 1
+        opponentName.layer.cornerRadius = 5
+        
         generalNotes.layer.borderColor = UIColor.blackColor().CGColor
         generalNotes.layer.borderWidth = 1
         generalNotes.layer.cornerRadius = 5

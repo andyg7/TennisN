@@ -29,7 +29,7 @@ class GenericSelfViewController: UIViewController {
         
         doneEditButton.hidden = true
         doneEditButton.layer.cornerRadius = 5
-        sectionText.editable = false
+    //    sectionText.editable = false
         
         var query = PFQuery(className:"UserSettings")
         var userIdText = PFUser.currentUser()?.objectId
@@ -71,9 +71,55 @@ class GenericSelfViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func editPressed(sender: AnyObject) {
+  /*  @IBAction func editPressed(sender: AnyObject) {
         doneEditButton.hidden = false
         sectionText.editable = true
+    }
+*/
+    @IBAction func update(sender: AnyObject) {
+        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        
+        doneEditButton.hidden = true
+        sectionText.editable = false
+        self.view.endEditing(true)
+        
+        var query = PFQuery(className:"UserSettings")
+        query.whereKey("UserId", equalTo: PFUser.currentUser()!.objectId!)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            
+            self.activityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            
+            if error == nil {
+                // The find succeeded.
+                println("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        object[self.section] = self.sectionText.text
+                        object.saveInBackgroundWithBlock {
+                            (success: Bool, error: NSError?) -> Void in
+                            if (success) {
+                                // The object has been saved.
+                            } else {
+                                // There was a problem, check error.description
+                            }
+                        }
+                    }
+                }
+                
+            } else {
+                // Log details of the failure
+                println("Error: \(error!) \(error!.userInfo!)")
+            }
+        }
     }
 
     @IBAction func doneEditPressed(sender: AnyObject) {
