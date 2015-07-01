@@ -49,6 +49,8 @@ class AddPlayerViewController: UIViewController {
         var tempName = opponentName.text
         if isValidInput(tempName) {
             
+            self.view.endEditing(true)
+            
             activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
             activityIndicator.center = self.view.center
             activityIndicator.hidesWhenStopped = true

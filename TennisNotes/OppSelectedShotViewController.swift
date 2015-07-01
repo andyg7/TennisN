@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class OppSelectedShotViewController: UIViewController {
-
+    
     @IBOutlet var shot: UILabel!
     @IBOutlet var notes: UITextView!
     @IBOutlet var doneEditButton: UIButton!
@@ -19,7 +19,7 @@ class OppSelectedShotViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
@@ -27,7 +27,7 @@ class OppSelectedShotViewController: UIViewController {
         
         doneEditButton.hidden = true
         doneEditButton.layer.cornerRadius = 5
-      //  notes.editable = false
+        //  notes.editable = false
         
         shot.text = opponentSections[shotSelected]
         
@@ -48,11 +48,11 @@ class OppSelectedShotViewController: UIViewController {
         notes.layer.borderWidth = 1
         notes.layer.cornerRadius = 5
     }
-
+    
     func DismissKeyboard(){
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
-      //  notes.editable = false
+        //  notes.editable = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,6 +61,9 @@ class OppSelectedShotViewController: UIViewController {
     }
     
     @IBAction func update(sender: AnyObject) {
+        
+        view.endEditing(true)
+        
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -70,9 +73,6 @@ class OppSelectedShotViewController: UIViewController {
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         
         doneEditButton.hidden = true
-        notes.editable = false
-        
-        view.endEditing(true)
         
         var tempId = opponentsID[rowSelected]
         
@@ -99,11 +99,11 @@ class OppSelectedShotViewController: UIViewController {
         }
         
     }
-   /* @IBAction func editPressed(sender: AnyObject) {
-        doneEditButton.hidden = false
-        notes.editable = true
+    /* @IBAction func editPressed(sender: AnyObject) {
+    doneEditButton.hidden = false
+    notes.editable = true
     } */
-
+    
     @IBAction func doneEditPressed(sender: AnyObject) {
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
         activityIndicator.center = self.view.center
@@ -119,7 +119,7 @@ class OppSelectedShotViewController: UIViewController {
         var tempId = opponentsID[rowSelected]
         
         var query = PFQuery(className:"Opponents")
-
+        
         query.getObjectInBackgroundWithId(tempId) {
             (object: PFObject?, error: NSError?) -> Void in
             self.activityIndicator.stopAnimating()
@@ -136,19 +136,19 @@ class OppSelectedShotViewController: UIViewController {
                         // There was a problem, check error.description
                     }
                 }
-
+                
             }
         }
         
     }
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

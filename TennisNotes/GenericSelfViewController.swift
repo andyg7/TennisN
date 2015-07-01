@@ -77,6 +77,9 @@ class GenericSelfViewController: UIViewController {
     }
 */
     @IBAction func update(sender: AnyObject) {
+        
+        self.view.endEditing(true)
+        
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -86,8 +89,7 @@ class GenericSelfViewController: UIViewController {
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         
         doneEditButton.hidden = true
-        sectionText.editable = false
-        self.view.endEditing(true)
+     //   sectionText.editable = false
         
         var query = PFQuery(className:"UserSettings")
         query.whereKey("UserId", equalTo: PFUser.currentUser()!.objectId!)
