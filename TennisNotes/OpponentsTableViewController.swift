@@ -45,11 +45,11 @@ class OpponentsTableViewController: UITableViewController {
             
             if error == nil {
                 // The find succeeded.
-                println("Successfully retrieved \(objects!.count) scores.")
+               // println("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects as? [PFObject] {
                     for object in objects {
-                        println(object.objectId)
+                      //  println(object.objectId)
                         var tempID = object.objectId
                         opponentsID.append(tempID!)
                         var tempString = object["OpponentFollowed"] as! String
@@ -58,7 +58,7 @@ class OpponentsTableViewController: UITableViewController {
                 }
             } else {
                 // Log details of the failure
-                println("Error: \(error!) \(error!.userInfo!)")
+               // println("Error: \(error!) \(error!.userInfo!)")
             }
             self.tableView.reloadData()
         }
@@ -123,11 +123,11 @@ class OpponentsTableViewController: UITableViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 if error == nil && opp != nil {
-                    println(opp)
+                 //   println(opp)
                     var object: AnyObject = opp!
                     object.deleteInBackgroundWithTarget(nil, selector: nil)
                 } else {
-                    println(error)
+                  //  println(error)
                 }
             }
             
@@ -152,11 +152,11 @@ class OpponentsTableViewController: UITableViewController {
             
             if error == nil {
                 // The find succeeded.
-                println("Successfully retrieved \(objects!.count) scores.")
+             //   println("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects as? [PFObject] {
                     for object in objects {
-                        println(object.objectId)
+                       // println(object.objectId)
                         var tempID = object.objectId
                         opponentsID.append(tempID!)
                         var tempString = object["OpponentFollowed"] as! String
@@ -165,7 +165,7 @@ class OpponentsTableViewController: UITableViewController {
                 }
             } else {
                 // Log details of the failure
-                println("Error: \(error!) \(error!.userInfo!)")
+             //   println("Error: \(error!) \(error!.userInfo!)")
             }
             self.tableView.reloadData()
         }

@@ -38,7 +38,7 @@ class ForgotPasswordViewController: UIViewController {
                 if succeeded { // SUCCESSFULLY SENT TO EMAIL
                     
                     self.performSegueWithIdentifier("backToLogin", sender: self)
-                    println("Reset email sent to your inbox");
+                   // println("Reset email sent to your inbox");
                 }
                 else { // SOME PROBLEM OCCURED
                     self.displayAlert("Reset link couldn't be sent", error: "Please try again")

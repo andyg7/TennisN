@@ -37,11 +37,11 @@ class OppSelectedShotViewController: UIViewController {
         query.getObjectInBackgroundWithId(tempId) {
             (object: PFObject?, error: NSError?) -> Void in
             if error == nil && object != nil {
-                println(object)
+              //  println(object)
                 var tem = object!.valueForKey(self.shot.text!) as! String
                 self.notes.text = tem
             } else {
-                println(error)
+             //   println(error)
             }
         }
         notes.layer.borderColor = UIColor.blackColor().CGColor
@@ -83,7 +83,7 @@ class OppSelectedShotViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().endIgnoringInteractionEvents()
             if error != nil {
-                println(error)
+              //  println(error)
             } else if let object = object {
                 object[self.shot.text!] = self.notes.text
                 object.saveInBackgroundWithBlock {
@@ -125,7 +125,7 @@ class OppSelectedShotViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().endIgnoringInteractionEvents()
             if error != nil {
-                println(error)
+              //  println(error)
             } else if let object = object {
                 object[self.shot.text!] = self.notes.text
                 object.saveInBackgroundWithBlock {

@@ -39,7 +39,7 @@ class GenericSelfViewController: UIViewController {
             
             if error == nil {
                 // The find succeeded.
-                println("Successfully retrieved \(objects!.count) scores.")
+             //   println("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects as? [PFObject] {
                     for object in objects {
@@ -52,7 +52,7 @@ class GenericSelfViewController: UIViewController {
                 
             } else {
                 // Log details of the failure
-                println("Error: \(error!) \(error!.userInfo!)")
+             //   println("Error: \(error!) \(error!.userInfo!)")
             }
         }
         sectionText.layer.borderColor = UIColor.blackColor().CGColor
@@ -101,7 +101,7 @@ class GenericSelfViewController: UIViewController {
             
             if error == nil {
                 // The find succeeded.
-                println("Successfully retrieved \(objects!.count) scores.")
+          //      println("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects as? [PFObject] {
                     for object in objects {
@@ -119,7 +119,7 @@ class GenericSelfViewController: UIViewController {
                 
             } else {
                 // Log details of the failure
-                println("Error: \(error!) \(error!.userInfo!)")
+               // println("Error: \(error!) \(error!.userInfo!)")
             }
         }
     }
@@ -146,7 +146,7 @@ class GenericSelfViewController: UIViewController {
             
             if error == nil {
                 // The find succeeded.
-                println("Successfully retrieved \(objects!.count) scores.")
+              //  println("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects as? [PFObject] {
                     for object in objects {
@@ -164,7 +164,7 @@ class GenericSelfViewController: UIViewController {
                 
             } else {
                 // Log details of the failure
-                println("Error: \(error!) \(error!.userInfo!)")
+            //    println("Error: \(error!) \(error!.userInfo!)")
             }
         }
         
